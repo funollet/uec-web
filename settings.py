@@ -57,7 +57,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TEMPLATE_DIRS = (
-    PROJECT_ROOT + 'templates/',
+    join(PROJECT_ROOT, 'templates', ''),
+    join(PROJECT_ROOT, 'templates-global', ''),
 )
 
 INSTALLED_APPS = (
