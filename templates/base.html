@@ -1,0 +1,44 @@
+{% load i18n %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+{% block meta %} <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> {% endblock %}
+{% block title %} <title>{% trans "UEC Gràcia" %}</title> {% endblock %}
+{% block style %}
+<link href="{{ MEDIA_URL }}css/base.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block script %}{% endblock %}
+</head>
+
+
+
+{% block body-opentag %}<body>{% endblock %}
+<div id="header">
+{% block header %}
+    <div id="top-nav-bar">
+        <ul>
+            <li><a href="/">uecgracia.cat</a></li>
+            <li><a href="/albums/">àlbums</a></li>
+            <li><a href="/forum/">fòrum</a></li>
+            <li><a href="/events/">calendari</a></li>
+            <li><a href="/links/">enllaços</a></li>
+            <li><a href="/photoplanet/">photoplanet</a></li>
+        </ul>
+    </div>
+{% endblock %}
+</div>
+
+<div id="container">
+    <div id="content">
+    {% block content %}{% endblock %}
+    </div>
+
+    <div id="sidebar">
+        {% block sidebar %}<div class="menu-vert"></div>{% endblock %}
+    </div>
+</div>
+
+<div id="footer">{% block footer %}{% endblock %}</div>
+</body></html>
