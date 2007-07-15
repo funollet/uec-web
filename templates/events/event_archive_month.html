@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load events_tags %}
+
+{% block style %}{{ block.super }}
+<link href="{{ MEDIA_URL }}css/photoplanet.css" rel="stylesheet" type="text/css" />
+<link href="{{ MEDIA_URL }}css/events.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="events">
+
+
+<div id="events-categories-container">
+<ul id="events-categories">
+{% for oc in categories_list %}
+    {% ifequal oc.name category %}<li class="active">{% else %}<li>{% endifequal %}
+        <a href="{{ oc.url }}">{{ oc.name }}</a>
+        </li>
+{% endfor %}
+</ul>
+</div>
+
+
+
+{% make_month_array %}
+<table class="monthcalendar">
+    <tr>
+        <th><a href="{{ previous_month_url }}"><<</a></th>
+        <th colspan="5">{{ month|date:"Y F" }}</th>
+        <th><a href="{{ next_month_url }}">>></a></th>
+    </tr>
+{% for week in month_array %}
+    <tr>
+    {% for day in week %}
+        
+        {% if day.1.0 %}
+            <td class="busy-day"><div class="day-container">
+                <div class="day-number">{{ day.0 }}</div>
+                <ul class="day-abstract">
+                {% for object in day.1 %}
+                    <li>
+                    <a style="color: {{ object.category.color}}" href={{ object.get_absolute_url }}>{{ object.abstract}}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div></td>
+        
+        {% else %}
+            <td class="free-day"><div class="day-container">
+                {% ifnotequal day.0 0 %}
+                <div class="day-number">{{ day.0 }}</div>
+                {% endifnotequal %}
+            </div></td>
+        {% endif %}
+        
+    {% endfor %}
+    </tr>
+
+{% endfor %}
+</table>
+
+</div>
+{% endblock %}

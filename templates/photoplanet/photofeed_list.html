@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block style %}{{ block.super}}
+<link href="{{ MEDIA_URL }}css/photoplanet.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<table id="photoplanet">
+{% for ph in object_list %}
+    {% cycle <tr>,<!---->,<!---->,<!----> %}
+        <td>
+            <table>
+            <tr><td style="height: 140px">
+                <a href="{{ ph.get_last.mblog }}">
+                <img class="photoplanet" src="{{ ph.get_last.mblog }}" alt="{{ ph.get_last.name }}" /></a>
+            </td></tr>
+            <tr><td><a href="{{ ph.home_url }}">{{ ph.name }}</a></td></tr>
+            </table>
+        </td>
+    {% cycle <!---->,<!---->,<!---->,</tr> %}
+    {% if forloop.last %}{% if forloop.counter|divisibleby:"2" %}{% else %}
+        </tr>
+    {% endif %}{% endif %}
+
+{% endfor %}
+</table>
+{% endblock %}

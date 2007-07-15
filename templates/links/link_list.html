@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block style %}{{ block.super}}
+<link href="{{ MEDIA_URL }}css/photoplanet.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{% block content %}
+
+{% regroup object_list by category as grouped %}
+<div class="link-category">
+{% for group in grouped %}
+    <h1>{{ group.grouper }}</h1>
+    <ul class="link">
+        {% for item in group.list %}
+            <li>
+            <a href="{{ item.url }}">{{ item.name }}</a>
+            {% if item.description %}
+                <p>{{ item.description }}</p>
+            {% endif %}
+            {% if item.via_url %}
+                <p>Via: <a href="{{ item.via_url }}">{{ item.via_name }}</a></p>
+            {% endif %}
+            {% if not item.via_url %}
+                {% if item.via_name %}
+                <p>Via: {{ item.via_name }}</p>
+                {% endif %}
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+</div>
+
+{% endblock %}
