@@ -8,6 +8,8 @@ urlpatterns = patterns('',
     (r'^events/', include('events.urls')),
     (r'^links/', include('links.urls')),
     (r'^photoplanet/', include('photoplanet.urls')),
+    (r'^preview/', 'misc.views.parse_markup_fields'),
+    (r'^', include('txts.urls')),
 )
 
 
