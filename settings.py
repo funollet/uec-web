@@ -1,4 +1,4 @@
-# Django settings for uecweb project.
+# Django settings for uec-web project.
 # -*- coding:utf-8 -*-
 
 from settings_local import *
@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'django.contrib.markup',
     'photoplanet',
     'tagging',
     'links',
@@ -80,6 +81,7 @@ ABSOLUTE_URL_OVERRIDES = {
     'txts.txt': lambda o: 'u/%s/%s/' % (o.section.easyname, o.easyname),
 }
 
+MARKUP='markdown'
 # Skip <h1>, I'll use on titles
 RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }
 # Tags application.
