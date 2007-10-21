@@ -39,7 +39,7 @@
                 <ul class="day-abstract">
                 {% for object in day.1 %}
                     <li>
-                    <a style="color: {{ object.category.color}}" href={{ object.get_absolute_url }}>{{ object.abstract}}</a>
+                    <a style="color: {{ object.category.color}}" href="{{ object.get_absolute_url }}">{{ object.abstract}}</a>
                     </li>
                 {% endfor %}
                 </ul>
