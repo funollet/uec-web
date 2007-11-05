@@ -3,12 +3,12 @@ from django.conf import settings
 
 urlpatterns = patterns('',
     (r'^r/', include('django.conf.urls.shortcut')),
+    (r'^admin/filebrowser/filebrowser/', include('filebrowser.urls')),
     (r'^admin/', include('django.contrib.admin.urls')),
-    #
     (r'^events/', include('events.urls')),
     (r'^links/', include('links.urls')),
     (r'^photoplanet/', include('photoplanet.urls')),
-    (r'^preview/', 'misc.views.parse_markup_fields'),
+    (r'^preview/', 'misc.views.parse_markup'),
     (r'^', include('txts.urls')),
 )
 

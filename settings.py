@@ -74,6 +74,7 @@ INSTALLED_APPS = (
     'events',
     'misc',
     'txts',
+    'filebrowser',
 )
 
 ABSOLUTE_URL_OVERRIDES = {
