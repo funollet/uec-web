@@ -72,7 +72,6 @@ INSTALLED_APPS = (
     'tagging',
     'links',
     'events',
-    'misc',
     'txts',
     'filebrowser',
 )
@@ -82,8 +81,5 @@ ABSOLUTE_URL_OVERRIDES = {
     'txts.txt': lambda o: u'/%s/%s/' % (o.section.easyname, o.easyname),
 }
 
-MARKUP='markdown'
-# Skip <h1>, I'll use on titles
-RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }
 # Tags application.
 STYLE_URL = join(MEDIA_URL, 'tags', '')
