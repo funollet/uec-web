@@ -74,6 +74,7 @@ INSTALLED_APPS = (
     'events',
     'txts',
     'filebrowser',
+    'feedme', 'feedme-photos',
 )
 
 ABSOLUTE_URL_OVERRIDES = {
@@ -83,3 +84,5 @@ ABSOLUTE_URL_OVERRIDES = {
 
 # Tags application.
 STYLE_URL = join(MEDIA_URL, 'tags', '')
+
+FEEDME_CACHE_BACKEND = 'file://%s' % join(PROJECT_ROOT, 'cache', 'feedme')
