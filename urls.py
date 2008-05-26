@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     (r'^admin/', include('django.contrib.admin.urls')),
     (r'^events/', include('events.urls')),
     (r'^links/', include('links.urls')),
-    (r'^photoplanet/', include('feedme.urls')),
+    (r'^planetauec/', include('feedme.urls')),
     (r'^txts/preview/$', 'txts.views.preview',),
     (r'^nova/', include('txts.urls')),
 )
