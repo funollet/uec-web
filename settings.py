@@ -1,8 +1,14 @@
 # Django settings for uec-web project.
 # -*- coding:utf-8 -*-
+import os.path
+import sys
+
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
 from settings_local import *
-from os.path import join
+
+ROOT_URLCONF = 'urls'
 
 # Local time zone for this installation. All choices can be found here:
 # http://www.postgresql.org/docs/current/static/datetime-keywords.html#DATETIME-TIMEZONE-SET-TABLE
@@ -21,11 +27,11 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = PROJECT_ROOT + 'media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
-MEDIA_URL = SITE_URL + 'media/'
+MEDIA_URL = '/media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -57,8 +63,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TEMPLATE_DIRS = (
-    join(PROJECT_ROOT, 'templates', ''),
-    join(PROJECT_ROOT, 'templates-global', ''),
+    os.path.join(PROJECT_ROOT, 'templates', ''),
+    os.path.join(PROJECT_ROOT, 'templates-global', ''),
 )
 
 INSTALLED_APPS = (
@@ -82,6 +88,6 @@ ABSOLUTE_URL_OVERRIDES = {
 }
 
 # Tags application.
-STYLE_URL = join(MEDIA_URL, 'tags', '')
+STYLE_URL = os.path.join(MEDIA_URL, 'tags', '')
 
-FEEDME_CACHE_BACKEND = 'file://%s' % join(PROJECT_ROOT, 'cache', 'feedme')
+FEEDME_CACHE_BACKEND = 'file://%s' % os.path.join(PROJECT_ROOT, 'cache', 'feedme')
